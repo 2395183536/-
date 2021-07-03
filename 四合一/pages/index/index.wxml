@@ -1,0 +1,79 @@
+<view class="container" style="background:{{colorPicker.color}}">
+    <view class="view">
+        <canvas canvasId="canvas" style="width:750rpx;height: 750rpx;"></canvas>
+        <canvas canvasId="canvasTemp" style="width:750rpx;height: 750rpx;position:absolute;left:-760rpx;top:0;"></canvas>
+        <view class="tool">
+            <image bindtap="setColor" data-b="{{map.bgColor.b}}" data-g="{{map.bgColor.g}}" data-key="bgColor" data-r="{{map.bgColor.r}}" src="/image/icon-theme.png"></image>
+            <image bindtap="bindHelp" src="/image/icon-help.png"></image>
+        </view>
+    </view>
+    <view class="operation">
+        <view class="list">
+            <view bindtap="changeType" class="item{{type=='default'?' active':''}}" data-type="default">默认</view>
+            <view bindtap="changeType" class="item{{type=='guys'?' active':''}}" data-type="guys">简笔</view>
+        </view>
+        <view class="tool">
+            <view bindtap="changeRandom" class="btn" wx:if="{{!value}}">
+                <image src="/image/icon-random.png"></image>
+                <text>随机</text>
+            </view>
+            <block wx:else>
+                <view bindtap="clearValue" class="btn">
+                    <image src="/image/icon-clear.png"></image>
+                    <text>清空</text>
+                </view>
+                <view bindtap="changePeople" class="btn">
+                    <image src="/image/icon-random.png"></image>
+                    <text>换人</text>
+                </view>
+            </block>
+        </view>
+        <view class="input">
+            <textarea bindinput="bindInput" maxlength="40" placeholder="请输入您要说的话比如：蒙蒙你可曾想过那个男生多么爱你？" style="{{!colorPicker.key?'':'height:1rpx;'}}" value="{{output}}"></textarea>
+        </view>
+        <view class="box">
+            <button bindtap="saveImage" disabled="{{loading}}" loading="{{loading}}">生成图片</button>
+        </view>
+    </view>
+</view>
+<view class="color-picker" wx:if="{{colorPicker.key}}">
+    <view class="hd">
+        <text bindtap="setIndex" class="title{{!colorPicker.index?' active':''}}" data-index="0">基础</text>
+        <text bindtap="setIndex" class="title{{colorPicker.index?' active':''}}" data-index="1">高级</text>
+        <view bindtap="closePicker" class="close">完成</view>
+    </view>
+    <view class="bd">
+        <view class="color-set" wx:if="{{!colorPicker.index}}">
+            <view bindtap="getColor" class="color" data-b="21" data-g="0" data-r="136" style="background:rgb(136,0,21);"></view>
+            <view bindtap="getColor" class="color" data-b="36" data-g="28" data-r="237" style="background:rgb(237,28,36);"></view>
+            <view bindtap="getColor" class="color" data-b="39" data-g="127" data-r="255" style="background:rgb(255,127,39);"></view>
+            <view bindtap="getColor" class="color" data-b="0" data-g="242" data-r="255" style="background:rgb(255,242,0);"></view>
+            <view bindtap="getColor" class="color" data-b="87" data-g="122" data-r="185" style="background:rgb(185,122,87);"></view>
+            <view bindtap="getColor" class="color" data-b="201" data-g="174" data-r="255" style="background:rgb(255,174,201);"></view>
+            <view bindtap="getColor" class="color" data-b="14" data-g="201" data-r="255" style="background:rgb(255,201,14);"></view>
+            <view bindtap="getColor" class="color" data-b="176" data-g="228" data-r="239" style="background:rgb(239,228,176);"></view>
+            <view bindtap="getColor" class="color" data-b="76" data-g="177" data-r="34" style="background:rgb(34,177,76);"></view>
+            <view bindtap="getColor" class="color" data-b="232" data-g="162" data-r="0" style="background:rgb(0,162,232);"></view>
+            <view bindtap="getColor" class="color" data-b="204" data-g="72" data-r="63" style="background:rgb(63,72,204);"></view>
+            <view bindtap="getColor" class="color" data-b="164" data-g="73" data-r="163" style="background:rgb(163,73,164);"></view>
+            <view bindtap="getColor" class="color" data-b="29" data-g="230" data-r="181" style="background:rgb(181,230,29);"></view>
+            <view bindtap="getColor" class="color" data-b="234" data-g="217" data-r="153" style="background:rgb(153,217,234);"></view>
+            <view bindtap="getColor" class="color" data-b="190" data-g="146" data-r="112" style="background:rgb(112,146,190);"></view>
+            <view bindtap="getColor" class="color" data-b="231" data-g="191" data-r="200" style="background:rgb(200,191,231);"></view>
+        </view>
+        <block wx:else>
+            <view class="channel">
+                <text>R</text>
+                <slider showValue bindchange="sliderChange" data-mode="r" max="255" min="0" selectedColor="#33b5e5" value="{{colorPicker.r}}"></slider>
+            </view>
+            <view class="channel">
+                <text>G</text>
+                <slider showValue bindchange="sliderChange" data-mode="g" max="255" min="0" selectedColor="#33b5e5" value="{{colorPicker.g}}"></slider>
+            </view>
+            <view class="channel">
+                <text>B</text>
+                <slider showValue bindchange="sliderChange" data-mode="b" max="255" min="0" selectedColor="#33b5e5" value="{{colorPicker.b}}"></slider>
+            </view>
+        </block>
+    </view>
+</view>

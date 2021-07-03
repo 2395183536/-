@@ -1,0 +1,41 @@
+<template name="shareDialog">
+    <view catchtap="hideShareDialog" catchtouchmove="disMove" class="share-dialog" wx:if="{{isShareDialogShow}}">
+        <view class="share-image-area">
+            <view class="share-load">
+                <view class="util-loadmore" wx:if="{{!shareQuanImage}}">
+                    <view class="util-loading"></view>
+                    <view class="util-loadmore-tips">正在加载海报</view>
+                </view>
+            </view>
+            <view class="share-image">
+                <image mode="aspectFit" src="{{shareQuanImage}}"></image>
+            </view>
+        </view>
+        <view class="share-dialog-area" wx:if="{{appenv=='wx'}}">
+            <view catchtap="clickNull" class="share-to-user" hoverClass="class-hover">
+                <image src="/image/share-user.png"></image>
+                <button openType="share"></button>
+                <view class="share-to-user-text">转发好友</view>
+            </view>
+            <view catchtap="saveShareImage" class="share-to-quan" data-article-id="{{clickShareArticleId}}" data-article-index="{{clickShareArticleIndex}}" hoverClass="class-hover" wx:if="{{!sensitive}}">
+                <image src="/image/share-quan.png"></image>
+                <view class="share-to-user-text">保存相册</view>
+            </view>
+        </view>
+        <view class="share-dialog-area" wx:if="{{appenv=='qq'}}">
+            <view catchtap="clickNull" class="share-to-user" hoverClass="class-hover">
+                <image src="/image/share-user-qq.png"></image>
+                <button openType="share"></button>
+                <view class="share-to-user-text">好友/空间</view>
+            </view>
+            <view catchtap="shareToShuo" class="share-to-qq-item" data-article-id="{{clickShareArticleId}}" data-article-index="{{clickShareArticleIndex}}" hoverClass="class-hover">
+                <image src="/image/share-to-shuo.png"></image>
+                <view class="share-to-user-text">发表说说</view>
+            </view>
+            <view catchtap="saveShareImage" class="share-to-qq-item" data-article-id="{{clickShareArticleId}}" data-article-index="{{clickShareArticleIndex}}" hoverClass="class-hover">
+                <image src="/image/share-quan.png"></image>
+                <view class="share-to-user-text">保存图片</view>
+            </view>
+        </view>
+    </view>
+</template>

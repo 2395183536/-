@@ -1,0 +1,39 @@
+<view class="adContainer" wx:if="{{spgg}}">
+    <ad adTheme="white" adType="video" unitId="{{item.val}}" wx:for="{{spgg}}"></ad>
+</view>
+<view class="cu-card case bg-white">
+    <view class="cu-item shadow">
+        <view class="image">
+            <image mode="widthFix" src="{{yj_chushi?yj_chushi:'/static/chsh.jpg'}}"></image>
+        </view>
+        <view class="flex text-center">
+            <button bindtap="goindex" class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue">再来一张</button>
+            <button bindtap="showModal" class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" data-target="Modal" wx:if="{{getSet.yj_jlssp&&tip}}">
+          立即保存
+        </button>
+            <button bindtap="hold" class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" wx:else>立即保存</button>
+        </view>
+        <view class="flex text-center">
+            <button class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" openType="share">分享一下</button>
+        </view>
+    </view>
+</view>
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">保存限制</view>
+            <view bindtap="hideModal" class="action">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+      {{getSet.yj_yindaowa?getSet.yj_yindaowa:'观看完视频可以自动保存哦~'}}
+    </view>
+        <view class="cu-bar bg-white">
+            <view bindtap="spclick" class="action margin-0 flex-sub  solid-left">我知道了</view>
+        </view>
+    </view>
+</view>
+<view class="flex-sub text-center">
+    <view class="padding">{{getSet.yj_copyright}}</view>
+</view>

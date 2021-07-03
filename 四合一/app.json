@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/help/index",
+    "pages/index/index",
+    "pages/cure/poem",
+    "yj_yishuzi/index/index",
+    "yj_yishuzi/other/index",
+    "yj_yishuzi/other/load",
+    "yj_yishuzi/index/create"
+  ],
+ "window": {
+    "navigationBarBackgroundColor": "#87CEFA",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "玩机工具坊",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#778899",
+    "selectedColor": "#000000",
+    "backgroundColor":"#ffffff",
+    "list": [  
+      {
+        "pagePath": "pages/index/index",
+        "text": "举牌小人",
+        "iconPath": "images/tabbar/tab-my-on.png",
+        "selectedIconPath": "images/tabbar/tab-my-active.png"
+      },
+       {
+        "pagePath": "pages/home/home",
+        "text": "小空调",
+        "iconPath": "images/tabbar/tab-forum-on.png",
+        "selectedIconPath": "images/tabbar/tab-forum-active.png"
+      },
+      {
+        "pagePath": "pages/cure/poem",
+        "text": "扎心文案",
+        "iconPath": "images/tabbar/tab-my-on.png",
+        "selectedIconPath": "images/tabbar/tab-my-active.png"
+      },
+      {
+        "pagePath": "yj_yishuzi/index/index",
+        "text": "艺术签名",
+        "iconPath": "images/tabbar/tab-home-on.png",
+        "selectedIconPath": "images/tabbar/tab-home-active.png"
+      }
+     
+    ]
+  },
+"groupIdList":[
+"如果需要QQ上架这里是群号码填写地址",
+   "12345678"
+
+  ],
+  "sitemapLocation": "sitemap.json"
+}

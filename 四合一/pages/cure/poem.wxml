@@ -1,0 +1,25 @@
+<import src="/template/shareDialog.wxml"></import>
+<import src="/template/itemCard.wxml"></import>
+<view class="list-header" wx:if="{{articleList[0]}}">
+    <view class="list-header-img">
+        <image src="/image/list_header_poem.png"></image>
+    </view>
+    <view bindtap="changeSort" class="list-header-sort">
+        <span class="{{listSort?'check':''}}">最新</span>
+        <span class="red-dot" wx:if="{{redDot}}"></span>
+        <span class="line">|</span>
+        <span class="{{listSort?'':'check'}}">热门</span>
+    </view>
+</view>
+<view class="poem-list">
+    <template is="{{listSort?'itemCardNew':'itemCardHot'}}" data="{{item:item,index:index,sensitive:sensitive,appenv:appenv}}" wx:for="{{articleList}}" wx:key="id"></template>
+</view>
+<view class="util-loadmore" hidden="{{!loadMore}}">
+    <view class="util-loading"></view>
+    <view class="util-loadmore-tips">马上就能温暖你的心</view>
+</view>
+<view class="util-loadmore" hidden="{{loadMore}}" wx:if="{{nextPage}}">
+    <view class="util-loadmore-tips">- 已无更多记录 -</view>
+</view>
+<template is="shareDialog" data="{{isShareDialogShow:isShareDialogShow,shareQuanImage:shareQuanImage,clickShareArticleId:clickShareArticleId,clickShareArticleIndex:clickShareArticleIndex,appenv:appenv}}"></template>
+<wxs module="mod" src="../../utils/mod.wxs" />

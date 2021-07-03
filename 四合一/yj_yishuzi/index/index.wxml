@@ -1,0 +1,46 @@
+<view class="adContainer">
+    <ad unit-id="adunit-cd33508a3fc38235"></ad>
+</view>
+<view class="cu-card case bg-white">
+    <view class="cu-item shadow">
+        <view class="image">
+            <image mode="widthFix" src="{{getSet.yj_chushi?getSet.yj_chushi:'/static/chsh.jpg'}}"></image>
+        </view>
+        <form bindsubmit="gocreate">
+            <view class="cu-form-group">
+                <view class="title">签名名称</view>
+                <input maxlength="15" name="val" placeholder="请输入名称(最多15个字)"></input>
+            </view>
+            <view class="cu-form-group margin-top">
+                <view class="title">选择类型</view>
+                <picker bindchange="PickerChange" range="{{pickers}}" rangeKey="name" value="{{index}}">
+                    <view class="picker">
+            {{index?pickers[index].name:'请选择签名类型'}}
+          </view>
+                </picker>
+            </view>
+            <view class="flex text-center">
+                <button class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" formType="submit">生成</button>
+                <button class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" openType="share">分享</button>
+                <button class="flex-sub padding-sm margin-xs cu-btn bg-gradual-blue" hover-class="hover" bindtap="openVideoAd">获取密码</button>
+            </view>
+        </form>
+    </view>
+</view>
+<view class="flex-sub text-center">
+    <view class="padding">{{getSet.yj_copyright}}</view>
+</view>
+<view class="cu-bar tabbar bg-white shadow foot" wx:if="{{getSet.yj_jsother==1}}">
+    <view bindtap="NavChange" class="action" data-cur="index">
+        <view class="cuIcon-cu-image">
+            <image src="/static/tabbar/home{{PageCur=='home'?'-path':''}}.png"></image>
+        </view>
+        <view class="{{PageCur=='home'?'text-blue':'text-gray'}}">艺术字</view>
+    </view>
+    <view bindtap="NavChange" class="action" data-cur="other">
+        <view class="cuIcon-cu-image">
+            <image src="/static/tabbar/other{{PageCur=='other'?'-path':''}}.png"></image>
+        </view>
+        <view class="{{PageCur=='other'?'text-blue':'text-gray'}}">其他</view>
+    </view>
+</view>

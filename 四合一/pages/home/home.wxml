@@ -1,0 +1,47 @@
+<view class="padding">
+    <view class="flex align-center justify-center text-xl text-gray">
+        <image class="iconList" src="/images/icons/tip.png" style="width:46rpx;height:46rpx;"></image>Tip:为你的夏日带去清凉
+  </view>
+    <view class=" text-center margin-top">
+        <image class="" src="/images/icons/1.png" style="width:666rpx;height:222rpx;"></image>
+        <image class="hehe" src="/images/icons/00.png" style="width: 100rpx; height: 122rpx; position: absolute; left: 69rpx; top: 10vh"></image>
+        <text style="width: 100rpx; height: 122rpx; position: absolute; left: 68vw; top: 10.5vh" wx:if="{{a1}}">{{s==0?'❄️':'☀️'}}</text>
+        <image src="/images/icons/{{o}}.png" style="width: 128.8rpx; height: 68.8rpx; position: absolute; left: 70vw; top: 14vh" wx:if="{{a1}}"></image>
+    </view>
+    <view class=" text-center" style="height:130rpx;">
+        <image class="margin-right-sm" src="/images/icons/v.png" style="width:519rpx;height:130rpx;" wx:if="{{a1}}"></image>
+    </view>
+    <view class="flex justify-center ">
+        <view bindtap="p" class="round margin justify-center flex align-center" data-t="0" style="width:150rpx;height:150rpx;background-color:#3D51BE;">
+            <image class="" src="/images/icons/b0.png" style="width:66rpx;height:66rpx;"></image>
+        </view>
+        <view bindtap="a" class="round margin justify-center flex align-center" style="width:150rpx;height:150rpx;{{a1==1?'background-color:#FF0059;':'background-color:#4CAF50;'}}">
+            <image class="" src="/images/icons/b1.png" style="width:66rpx;height:66rpx;"></image>
+        </view>
+        <view bindtap="p" class="round margin justify-center flex align-center" data-t="1" style="width:150rpx;height:150rpx;background-color:#FFA400;">
+            <image class="" src="/images/icons/b2.png" style="width:66rpx;height:66rpx;"></image>
+        </view>
+    </view>
+    <view class="flex justify-center margin-top-sm">
+        <view bindtap="clickAdd" class="round justify-center flex align-center" style="width:150rpx;height:150rpx;background-color:#DFE0DF;">
+            <image class="" src="/images/icons/b3.png" style="width:66rpx;height:66rpx;"></image>
+        </view>
+    </view>
+    <view class="flex justify-center margin-top-xl">
+        <view bindtap="clickSSS" class="round justify-center flex align-center" style="width:150rpx;height:150rpx;background-color:#DFE0DF;">
+            <image class="" src="/images/icons/b4.png" style="width:66rpx;height:66rpx;"></image>
+        </view>
+    </view>
+    
+    
+</view>
+<view class="flex justify-center ">是不是还热？要不要来瓶冰镇饮料</view>
+<view class="flex justify-center ">
+       
+    <view class="btn-area">
+  <navigator target="miniProgram" open-type="navigate" app-id="这里填写你的小程序id"  extra-data="" version="release" class='nav'><image src="/images/icons/x.png" style="width:300rpx;height:300rpx;"></image></navigator>
+</view>
+<view class="btn-area">
+  <navigator target="miniProgram" open-type="navigate" app-id="这里填写你的小程序id"  extra-data="" version="release" class='nav2'><image src="/images/icons/k.png" style="width:300rpx;height:300rpx;"></image></navigator>
+</view>
+</view>

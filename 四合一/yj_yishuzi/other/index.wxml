@@ -1,0 +1,33 @@
+<view class="adContainer" wx:if="{{getSet.yj_banner}}">
+    <ad unitId="{{item.val}}" wx:for="{{getSet.yj_banner}}"></ad>
+</view>
+<view class="cu-list menu-avatar">
+    <view bindtap="navigate" class="cu-item" data-appid="{{item.appid}}" data-appurl="{{item.appurl}}" data-otype="{{item.otype}}" data-phone="{{item.phone}}" data-url="{{item.linkurl}}" style="margin: 30rpx;" wx:for="{{getother}}" wx:key="index">
+        <view class="cu-avatar round lg" style="background-image:url({{item.thumb}});"></view>
+        <view class="content" style="width:calc(100% - 0rpx - 60rpx - 120rpx - 20rpx);">
+            <view class="text-grey">
+                <text class="text-cut">{{item.name}}</text>
+            </view>
+            <view class="text-gray text-sm flex">
+                <text class="text-cut">{{item.description}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="flex-sub text-center">
+    <view class="padding">{{getSet.yj_copyright}}</view>
+</view>
+<view class="cu-bar tabbar bg-white shadow foot" wx:if="{{getSet.yj_jsother==1}}">
+    <view bindtap="NavChange" class="action" data-cur="index">
+        <view class="cuIcon-cu-image">
+            <image src="/static/tabbar/home{{PageCur=='home'?'-path':''}}.png"></image>
+        </view>
+        <view class="{{PageCur=='home'?'text-blue':'text-gray'}}">艺术字</view>
+    </view>
+    <view bindtap="NavChange" class="action" data-cur="other">
+        <view class="cuIcon-cu-image">
+            <image src="/static/tabbar/other{{PageCur=='other'?'-path':''}}.png"></image>
+        </view>
+        <view class="{{PageCur=='other'?'text-blue':'text-gray'}}">其他</view>
+    </view>
+</view>

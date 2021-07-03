@@ -1,0 +1,169 @@
+<template name="itemCardMine">
+    <view class="rank-list-item">
+        <view bindtap="goArticle" class="rank-item-article" data-article-id="{{item.id}}">
+            <text class="article-text">{{item.content}}</text>
+            <view class="article-author">-- {{item.userName}}</view>
+        </view>
+        <view class="rank-item-sidebar">
+            <view class="forum-sidebar-head">
+                <image src="{{item.userHead}}" wx:if="{{item.userHead}}"></image>
+                <image src="/image/avatar.png" wx:else></image>
+            </view>
+            <view class="rank-sidebar-action">
+                <view bindtap="deleteMyDoc" class="share" data-article-id="{{item.id}}" data-article-index="{{index}}" hoverClass="class-hover">
+                    <image class="share-icon" src="/image/delete.png"></image>
+                    <view class="share-text">删除</view>
+                </view>
+                <form bindsubmit="clickLike" data-article-id="{{item.id}}" data-article-index="{{index}}" data-article-liked="{{item.isLiked}}" reportSubmit="true">
+                    <button class="like" formType="submit" hoverClass="class-hover">
+                        <view class="like-image">
+                            <image class="like-icon" src="/image/like.png" wx:if="{{!item.isLiked}}"></image>
+                            <image class="like-icon" src="/image/liked.png" wx:if="{{item.isLiked}}"></image>
+                        </view>
+                        <view class="like-anim">
+                            <image class="like-anim-image" src="/image/liked.png" wx:if="{{item.likeAnim}}"></image>
+                        </view>
+                        <view class="like-num-area" hidden="{{item.likeNum==0}}">
+                            <view class="like-num">{{item.likeNum}}</view>
+                        </view>
+                        <view class="like-text">扎心</view>
+                    </button>
+                </form>
+                <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+                    
+                </form>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="itemCardForum">
+    <view class="rank-list-item">
+        <view bindtap="goArticle" class="rank-item-article" data-article-id="{{item.id}}">
+            <text class="article-text">{{item.content}}</text>
+            <view class="article-author">-- {{item.userName}}</view>
+        </view>
+        <view class="rank-item-sidebar">
+            <view class="forum-sidebar-head">
+                <image src="{{item.userHead}}" wx:if="{{item.userHead}}"></image>
+                <image src="/image/avatar.png" wx:else></image>
+            </view>
+            <view class="rank-sidebar-action">
+               
+                <form bindsubmit="clickLike" data-article-id="{{item.id}}" data-article-index="{{index}}" data-article-liked="{{item.isLiked}}" reportSubmit="true">
+                    <button class="like" formType="submit" hoverClass="class-hover">
+                        <view class="like-image">
+                            <image class="like-icon" src="/image/like.png" wx:if="{{!item.isLiked}}"></image>
+                            <image class="like-icon" src="/image/liked.png" wx:if="{{item.isLiked}}"></image>
+                        </view>
+                        <view class="like-anim">
+                            <image class="like-anim-image" src="/image/liked.png" wx:if="{{item.likeAnim}}"></image>
+                        </view>
+                        <view class="like-num-area" hidden="{{item.likeNum==0}}">
+                            <view class="like-num">{{item.likeNum}}</view>
+                        </view>
+                        <view class="like-text">扎心</view>
+                    </button>
+                </form>
+                <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+                   
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="list-ad" wx:if="{{(index+1)%3==0}}">
+        <ad unitId="adunit-c57b81f80b61e008" wx:if="{{appenv=='wx'}}"></ad>
+        <ad unitId="fc3abaae98a03bef95bbf30cb1962bf8" wx:if="{{appenv=='qq'}}"></ad>
+    </view>
+</template>
+<template name="itemCardHot">
+    <view class="rank-list-item">
+        <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+            <button class="rank-item-article" formType="submit" hoverClass="rank-item-article-hover">
+                <text class="article-text">{{item.content}}</text>
+                <view class="article-author">-- {{item.userName}}</view>
+            </button>
+        </form>
+        <view class="rank-item-sidebar">
+            <view class="rank-sidebar-num">
+                <view class="rank-sidebar-num-bg">
+                    <image src="/image/rank_num_bg_1.png" wx:if="{{index==0}}"></image>
+                    <image src="/image/rank_num_bg_2.png" wx:elif="{{index==1}}"></image>
+                    <image src="/image/rank_num_bg_3.png" wx:elif="{{index==2}}"></image>
+                    <image src="/image/rank_num_bg.png" wx:else></image>
+                </view>
+                <view class="rank-sidebar-num-text" wx:if="{{index<3}}">{{index+1}}</view>
+                <view class="rank-sidebar-num-text-nor" wx:else>{{index+1}}</view>
+            </view>
+            <view class="rank-sidebar-action">
+               
+                <form bindsubmit="clickLike" data-article-id="{{item.id}}" data-article-index="{{index}}" data-article-liked="{{item.isLiked}}" reportSubmit="true">
+                    <button class="like" formType="submit" hoverClass="class-hover">
+                        <view class="like-image">
+                            <image class="like-icon" src="/image/like.png" wx:if="{{!item.isLiked}}"></image>
+                            <image class="like-icon" src="/image/liked.png" wx:if="{{item.isLiked}}"></image>
+                        </view>
+                        <view class="like-anim">
+                            <image class="like-anim-image" src="/image/liked.png" wx:if="{{item.likeAnim}}"></image>
+                        </view>
+                        <view class="like-num-area" hidden="{{item.likeNum==0}}">
+                            <view class="like-num">{{item.likeNum}}</view>
+                        </view>
+                        <view class="like-text">扎心</view>
+                    </button>
+                </form>
+                <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+                    
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="list-ad" wx:if="{{(index+1)%3==0}}">
+        <ad unitId="adunit-c57b81f80b61e008" wx:if="{{appenv=='wx'}}"></ad>
+        <ad unitId="ef755f08b997a5aaeefe2648307977eb" wx:if="{{appenv=='qq'}}"></ad>
+    </view>
+</template>
+<template name="itemCardNew">
+    <view class="main-list-item">
+        <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+            <button class="main-item-article" formType="submit" hoverClass="main-item-article-hover">
+                <text class="article-text">{{item.content}}</text>
+                <view class="article-author">-- {{item.userName}}</view>
+            </button>
+        </form>
+        <view class="main-item-sidebar" style="height:{{item.line*60+40}}rpx; ">
+            <view class="date">
+                <view class="date-text">
+                    <view class="dayStr">{{mod.getDateArr(item.date)[2]}}</view>
+                    <view class="date-line"></view>
+                    <view class="month">{{mod.getMonthStr( mod.getDateArr(item.date)[1] )}}</view>
+                </view>
+            </view>
+            <view class="main-sidebar-action">
+                
+                <form bindsubmit="clickLike" data-article-id="{{item.id}}" data-article-index="{{index}}" data-article-liked="{{item.isLiked}}" reportSubmit="true">
+                    <button class="like" formType="submit" hoverClass="class-hover">
+                        <view class="like-image">
+                            <image class="like-icon" src="/image/like.png" wx:if="{{!item.isLiked}}"></image>
+                            <image class="like-icon" src="/image/liked.png" wx:if="{{item.isLiked}}"></image>
+                        </view>
+                        <view class="like-anim">
+                            <image class="like-anim-image" src="/image/liked.png" wx:if="{{item.likeAnim}}"></image>
+                        </view>
+                        <view class="like-num-area" hidden="{{item.likeNum==0}}">
+                            <view class="like-num">{{item.likeNum}}</view>
+                        </view>
+                        <view class="like-text">扎心</view>
+                    </button>
+                </form>
+                <form bindsubmit="goArticle" data-article-id="{{item.id}}" data-article-index="{{index}}" reportSubmit="true">
+                 
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="list-ad" wx:if="{{(index+1)%3==0}}">
+        <ad unitId="adunit-c57b81f80b61e008" wx:if="{{appenv=='wx'}}"></ad>
+        <ad unitId="3e2b0b147567671f916a5ef76f86dc27" wx:if="{{appenv=='qq'}}"></ad>
+    </view>
+</template>
+<wxs module="mod" src="../utils/mod.wxs" />
